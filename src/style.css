@@ -1,0 +1,324 @@
+:root {
+    --white: #fff;
+    --dark: #343a40;
+    --border: 1px solid var(--white);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    background-color: var(--dark);
+}
+
+.nav a {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    opacity: 0.75;
+}
+
+.navactive {
+    opacity: 0.75;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdownselectiontext {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.dropdownselectiontext:hover {
+    opacity: 0.75;
+}
+
+.dropdownmenu {
+    display: flex;
+    position: absolute;
+    background-color: var(--dark);
+    border-radius: 5px;
+    z-index: 5;
+    transition: all .1s ease;
+    opacity: 0;
+    visibility: hidden;
+    flex-direction: column;
+    white-space: nowrap;
+}
+
+.dropdownmenu a {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.dropdownmenu a:last-child {
+    margin-bottom: 1rem;
+}
+
+.dropdown:hover > .dropdownmenu, .dropdown .focus-within > .dropdownmenu, .dropdown .dropdownmenu:hover, .dropdown .dropdownmenu:focus {
+    visibility: visible;
+    opacity: 1
+}
+
+.container {
+    width: calc(99vw - 30px);
+    max-width: calc(100vw - 30px);
+    padding: 0 15px;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: 1rem;
+}
+
+.title {
+    color: var(--white);
+    font-size: 2.5rem;
+}
+
+.redo {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: transparent;
+    border: var(--border);
+    border-radius: 0.25rem;
+    color: var(--white);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.redo:hover {
+    text-decoration: none;
+    background-color: var(--white);
+    color: var(--dark);
+}
+
+.redo:focus {
+    outline: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.arrow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.5rem;
+    height: auto;
+    margin: 0.5rem 1rem;
+    background-color: transparent;
+    border: var(--border);
+    cursor: pointer;
+}
+
+.arrow-container:hover {
+    text-decoration: none;
+}
+
+.arrow-container:hover > .arrow-left {
+    border-right: 30px solid var(--white);
+}
+
+.arrow-container:hover > .arrow-right {
+    border-left: 30px solid var(--white);
+}
+
+.arrow-container:focus {
+    outline: 0;
+}
+
+.pic {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 0;
+}
+
+.arrow-left {
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-right: 30px solid #737373;
+}
+
+.arrow-right {
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 30px solid #737373;
+}
+
+.innercontent {
+    width: 51rem;
+    height: 46.5rem;
+    border: var(--border);
+    padding: 1rem;
+    margin: 0.5rem;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: start;
+    justify-items: center;
+}
+
+.pokecontainer {
+    display: flex;
+    width: 7.5rem;
+    height: 7.5rem;
+    margin: 0.5rem;
+    background-color: transparent;
+    align-items: center;
+    border: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.pokecontainer:focus {
+    outline: 0;
+}
+
+.pokecontainer div[role="tooltip"] {
+    display: none;
+}
+
+.pokecontainer:hover .pokesprite {
+    opacity: 0.75;
+}
+
+.pokecontainer:hover div[role="tooltip"] {
+    display: flex;
+    position: relative;
+    width: 7.5rem;
+    height: 9rem;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--white);
+    left: -7.5rem;
+}
+
+.pokesprite {
+    width: 7.5rem;
+    height: 7.5rem;
+}
+
+.pokesprite[caught="false"] {
+    opacity: 0.5;
+}
+
+.tooltiptitle {
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center !important;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.tooltiptitle:before {
+    content: "";
+    margin-left: -100%;
+}
+
+.tooltiptitle:after {
+    content: "";
+    margin-right: -100%;
+}
+
+.gendersprite {
+    font-size: 1.5rem;
+}
+
+table {
+    color: var(--white);
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-right: var(--border);
+    border-top: var(--border);
+    border-collapse: collapse;
+}
+
+table + table {
+    margin-left: 3rem;
+}
+
+th, td {
+    padding: 0 1rem;
+    border-left: var(--border);
+    border-bottom: var(--border);
+}
+
+th {
+    min-width: 5rem;
+    font-size: 1.5rem;
+    font-weight: 2000;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+td {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.tablesprite {
+    width: 7rem;
+    height: 7rem;
+    padding: 0.75rem;
+}
+
+.pokeinput {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.pokeinput:hover {
+    opacity: 0.75;
+}
+
+.pokecaught {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto;
+    background-color: rgb(255, 0, 0);
+}
+
+.pokecaught[caught="true"] {
+    background-color: rgb(204, 204, 25);
+}
